@@ -1,11 +1,21 @@
-class JobsController < ApplicationController
-before_action :authenticate_user!, only:[:new, :create, :eidt, :update, :destroy]
-  def index
-    @jobs = Job.all
+class Admin::JobsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_is_admin
+
+  def require_is_admin
+    if !current_user.admin?
+      flash[:alert] = 'You are not admin'
+      redirect_to root_path
+    end
   end
+
 
   def show
     @job = Job.find(params[:id])
+  end
+
+  def index
+    @jobs = Job.all
   end
 
   def new
@@ -14,14 +24,12 @@ before_action :authenticate_user!, only:[:new, :create, :eidt, :update, :destroy
 
   def create
     @job = Job.new(job_params)
-
     if @job.save
       redirect_to jobs_path
     else
       render :new
     end
   end
-
 
   def edit
     @job = Job.find(params[:id])
@@ -32,7 +40,7 @@ before_action :authenticate_user!, only:[:new, :create, :eidt, :update, :destroy
     if @job.update(job_params)
       redirect_to jobs_path
     else
-      reder :edit
+      render :edit
     end
   end
 
@@ -40,12 +48,12 @@ before_action :authenticate_user!, only:[:new, :create, :eidt, :update, :destroy
     @job = Job.find(params[:id])
     @job.destroy
       redirect_to jobs_path
+
   end
 
-
   private
-
   def job_params
     params.require(:job).permit(:title, :description)
   end
+
 end
