@@ -8,8 +8,9 @@
 
 puts "这个seeds文件可以自动建立一个admin账号，并且创建10个public jobs,以及10各hidden jobs"
 
-create_account = User.create([email: 'example@gmail.com', password:'123456', password_confirmation: '123456', is_admin: 'true'])
+create_account = User.create([email: 'c@qq.com', password:'111111', password_confirmation: '111111', is_admin: 'true'])
 puts "Admin account created."
+create_account = User.create([email: 's@qq.com', password:'111111', password_confirmation: '111111', is_admin: 'true'])
 
 create_job = for i in 1..10 do
   Job.create!([title: "Job no.#{i}", description: "这是用seeds文件建立的第 #{i} 个公开的工作", wage_upper_bound: rand(50..99)*100, wage_lower_bound: rand(10..49)*100, is_hidden: "false"])
