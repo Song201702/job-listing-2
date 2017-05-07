@@ -1,4 +1,4 @@
-<h1> Edit a job</h>
+<!-- <h1> Edit a job</h>
 
 <%= simple_form_for [:admin, @job] do |f| %>
 <%= f.input :is_hidden %>
@@ -15,4 +15,38 @@
 <%= f.input :category, :label => "分类" %>
 
   <%= f.submit "Submit" %>
-<% end %>
+
+<% end %> -->
+
+
+
+<div class="col-md-8 col-centered">
+  <div class="panel panel-success">
+    <div class="panel-heading" > <h3 style="margin-top: 10px;"> Edit a job </h3></div>
+    <div class="panel-body">
+
+      <%= simple_form_for [:admin, @job] do |f| %>
+      <%= f.input :is_hidden %>
+
+      <%= f.input :title %>
+      <%= f.input :description %>
+
+      <%= f.input :wage_lower_bound, :label => "薪资下限" %>
+      <%= f.input :wage_upper_bound, :label => "薪资上限" %>
+      <%= f.input :contact_email %>
+
+      <%= f.input :company, :label => "公司" %>
+      <%= f.input :city, :label => "城市" %>
+      <%= f.input :category, :label => "分类" %>
+
+        <%= f.submit "Submit", class:"btn btn-danger"%>
+      <% end %>
+      </br>
+    </div>
+  </div>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+</div>

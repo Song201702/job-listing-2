@@ -56,6 +56,10 @@ before_action :validate_search_key, only: [:search]
       redirect_to jobs_path
   end
 
+
+  # def about
+  # end
+
   def search
     if @query_string.present?
       search_result = Job.published.ransack(@search_criteria).result(:distinct => true)
@@ -74,6 +78,7 @@ before_action :validate_search_key, only: [:search]
   def search_criteria(query_string)
     { :title_cont => query_string }
   end
+
 
   private
 

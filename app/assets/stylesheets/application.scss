@@ -19,6 +19,13 @@
  @import "bootstrap";
  @import "font-awesome";
 
+//-----------container-fluid------------------
+.row {
+
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
  //---------Navbar---------
 
  .navbar-default {
@@ -26,6 +33,16 @@
      border-color: #212121;
 
      border-radius: 0;
+ }
+
+ .navbar-brand > img {
+   display: inline-block;
+   margin-right: 10px;
+   margin-top: -4px;
+    margin-left: -8px;
+   width: 32px;
+   height: 32px;
+
  }
 
  .navbar-default .navbar-brand {
@@ -71,12 +88,13 @@
 }
 
  #search-id {
-  width: 300px;
+  width: 320px;
   padding-top: 8px;
 
 
 }
 
+//----------------------------------------------welcome-----------------------------------
 /* -----------Search.html.erb----------*/
 
 .search-info-title {
@@ -91,6 +109,7 @@
  .box {
      background-image: url("header.jpg");
      background-repeat: no-repeat;
+     background-color: #e7e7e7;
      background-size: cover;
      margin-bottom: 50px;
      margin-top: -20px;
@@ -100,6 +119,7 @@
          padding-bottom: 5px;
          margin-top: 150px;
          margin-bottom: 150px;
+
      }
 
      .title {
@@ -176,14 +196,77 @@
 //---------Footer---------
 
  footer {
-     color: white;
+     color: transparent;
+     background-color: #233140;
+
  }
+ footer {
+   padding: 3em 0;
+ }
+
+ .soc-media-ul {
+     justify-content: center;
+     display: flex;
+
+ }
+ .soc-media-ul a {
+    display: block;
+    padding: 0.5em 0.8em;
+    font-size: 1em;
+    color: #fff;
+    border-radius: 50%;
+    border: 2px solid;
+
+    &:hover,
+    &:focus{
+      color: #5cb85c;
+    }
+}
+.soc-media-ul li:not(:first-child) a {
+    margin-left: 1em;
+}
+// .footer {
+//     position: absolute;
+//     bottom: 0;
+//     width: 100%;
+//     height: 150px;
+//     background-color: #111;
+//     text-align: center;
+// }
+// .footer .container {
+//     margin-top: 20px;
+//     color: #fff;
+//     width: 100%
+// }
 
  footer .footer-below {
      padding: 25px 0;
-     background-color: #233140;
+
  }
 
+ element.style {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+/*----------如何使2个超链接表现不同的效果----------------*/
+// 每个a链接单独一个class
+// <a class="a1" herf="#">图片1</a>
+// <a class="a1" herf="#">图片2</a>
+
+
+// .a1：hover{滑动过去的图片}
+
+ .a1 {
+    color: #eeeeee;
+    text-decoration: none;
+    // &:hover,
+    // &:focus{
+    //   color: #5cb85c;
+    // }
+}
+.a1:hover, .a1:focus {
+    color: #5cb85c;
+}
 //-------common-----------
 .col-centered{
   float: none;
@@ -192,12 +275,91 @@
 
 .btn-xlg-c, .btn-group-lg > .btn {
     padding: 10px 16px;
-    width: 184px;
+    width: 300px;
     height: 62px;
     font-size: 30px;
     line-height: 1.3333333;
     border-radius: 6px;
+
 }
+
+//-------------------------------------job-list----------------------------------------
+.job-primary {
+    overflow: hidden;
+    color: #1fbdad;
+}
+
+.job-primary .info-primary {
+    float: left;
+    color: #61687c;
+}
+.red {
+    color: #fc703e;
+}
+
+.vline {
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    vertical-align: middle;
+    background: #E0E0E0;
+    margin: 0 10px;
+}
+
+.info-company {
+    overflow: right;
+}
+
+.home-box .job-list .company-text {
+    padding-top: 6px;
+}
+.company-text {
+    text-align: right;
+}
+
+
+.home-box .job-list {
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.home-box .job-list li .company-logo {
+    height: 60px;
+    color: #61687c;
+    font-size: 18px;
+    width: auto;
+    line-height: 80px;
+}
+
+.home-box .job-list {
+    margin-right: 0;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.job-list li {
+    padding: 20px 40px;
+    border-bottom: 1px #F2F2F5 solid;
+    // border-top: 1px #F2F2F5 solid;
+    // // border-left: 1px #F2F2F5 solid;
+    // // border-right: 1px #F2F2F5 solid;
+    overflow: hidden;
+  }
+.li {
+      display: list-item;
+      text-align: -webkit-match-parent;
+  }
+  #header:after, #main:after, .clearfix:after, .home-box:after, .inner:after, .job-author:after, .job-list li:after, .job-primary:after, .promotion-job li:after {
+      content: '';
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      clear: both;
+  }
+  ul, ol {
+      margin-top: 0;
+      margin-bottom: -10px;
+  }
+
 
 // .panel-green-c > .panel-heading {
 //     color: #f5f5f5;
